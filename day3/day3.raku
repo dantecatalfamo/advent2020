@@ -2,7 +2,7 @@
 
 my @lines = "input.txt".IO.lines>>.comb;
 
-sub f($xd, $yd) {
+sub trees($xd, $yd) {
     my ($x, $y, $t) = 0, 0, 0;
     while $y < @lines.elems {
         $t++ if  @lines[$y][$x] eq '#';
@@ -12,5 +12,5 @@ sub f($xd, $yd) {
     $t;
 }
 
-say "Part 1: ", f(3, 1);
-say "Part 2: ", [*] ((1, 1), (3, 1), (5, 1), (7, 1), (1, 2)).map({f(|$_)});
+say "Part 1: ", trees(3, 1);
+say "Part 2: ", [*] ((1, 1), (3, 1), (5, 1), (7, 1), (1, 2)).map({trees(|$_)});
