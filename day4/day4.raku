@@ -12,7 +12,7 @@ for @passports {
     next if .<byr> !~~ 1920..2002;
     next if .<iyr> !~~ 2010..2020;
     next if .<eyr> !~~ 2020..2030;
-    next if .<hgt> !~~ / (\d+) ("in" || "cm") /;
+    next if .<hgt> !~~ / ^ (\d+) ("in" || "cm") $ /;
     next if $/[1] eq "cm" && $/[0] !~~ 150..193;
     next if $/[1] eq "in" && $/[0] !~~ 59..76;
     next if .<hcl> !~~ / '#' <[0..9 a..f]> ** 6 /;
