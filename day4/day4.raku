@@ -2,9 +2,8 @@
 
 my @passports = "input.txt".IO.split("\n\n")>>.words>>.split(':').map(*.flat.Hash);
 my ($valid1, $valid2);
-for @passports {
-    ++$valid1 if .keys (>=) <byr iyr eyr hgt hcl ecl pid>;
-}
+
+++$valid1 if .keys (>=) <byr iyr eyr hgt hcl ecl pid> for @passports;
 
 say "Part 1: $valid1";
 
