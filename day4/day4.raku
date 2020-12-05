@@ -15,9 +15,9 @@ for @passports {
     next if .<hgt> !~~ / ^ (\d+) ("in" || "cm") $ /;
     next if $/[1] eq "cm" && $/[0] !~~ 150..193;
     next if $/[1] eq "in" && $/[0] !~~ 59..76;
-    next if .<hcl> !~~ / '#' <[0..9 a..f]> ** 6 /;
+    next if .<hcl> !~~ / ^ '#' <[0..9 a..f]> ** 6 $ /;
     next if .<ecl> !(elem) <amb blu brn gry grn hzl oth>;
-    next if .<pid> !~~ / \d ** 9 /;
+    next if .<pid> !~~ / ^ \d ** 9 $ /;
     ++$valid2;
 }
 
